@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+    <h1 style="text-align: center;color: red;">viewbook</h1>
+    <tr>
+        <th>title</th>
+        <th>author</th>
+        <th>pub date</th>
+        <th>description</th>
+    </tr>
+    <tr>
+        {% for i in book %}
+        <td>{{i.title}}</td>
+        <td>{{i.author}}</td>
+        <td>{{i.pub_date}}</td>
+        <td>{{i.description}}</td>
+
+    </tr>
+    {% end for %}
+    </table>
+</body>
+</html>
