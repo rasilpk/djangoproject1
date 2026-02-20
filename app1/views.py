@@ -34,3 +34,18 @@ def addbook(request):
         a.save()
         return redirect("viewbook")
     return render(request,'addbook.html',{"ab":a})
+
+def update_book(request,id):
+    a=book.objects.get(id=id)
+    b=bookform(request.POST or None ,instance=a)
+    if b.is_valid():
+        b.save()
+        return redirect('viewbook')
+    return render(request,"updatebook.html",{"ab":b})
+
+def delete_book(request,id):
+    a=book.objects.get(id=id)
+    if request.method=='POST':
+      a.delete()
+      return redirect('viewbook')
+    return render(request,"deletebook.html",{"ab":book})
